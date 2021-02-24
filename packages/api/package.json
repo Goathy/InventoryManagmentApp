@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "description": "IMA REST API",
+  "version": "0.0.1",
+  "private": "true",
+  "scripts": {
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "tsc": "tsc --noEmit",
+    "eslint": "eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
+    "test": "jest --detectOpenHandles --verbose"
+  },
+  "author": "Jakub Gałecki",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@swc-node/jest": "^1.1.0",
+    "@tsconfig/node14": "^1.0.0",
+    "@types/hapi__hapi": "^20.0.5",
+    "@types/jest": "^26.0.20",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "jest": "^26.6.3",
+    "jest-extended": "^0.11.5"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.1.0",
+    "dotenv": "^8.2.0"
+  }
+}

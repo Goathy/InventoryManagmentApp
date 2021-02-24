@@ -1,0 +1,31 @@
+{
+  "name": "ima",
+  "private": true,
+  "scripts": {
+    "eslint": "lerna run eslint --stream",
+    "prettier": "prettier --write \"**/*.{md,json,yml,yaml}\"",
+    "test": "lerna run test --stream",
+    "tsc": "lerna run tsc --stream",
+    "commit": "cz",
+    "new-version": "lerna version --conventional-commits --yes"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-functional": "^3.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
