@@ -29,3 +29,6 @@ export function getConfig(name: keyof NameToType): NameToType[keyof NameToType] 
 
   return val;
 }
+
+export const isTesting = () => getConfig('NODE_ENV') === 'test';
+export const isDevelop = () => getConfig('NODE_ENV') === 'development';

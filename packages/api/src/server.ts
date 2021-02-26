@@ -1,6 +1,7 @@
 import Hapi from '@hapi/hapi';
 
 import { getConfig } from './config';
+import { DatabasePlugin } from './plugins/database/database.plugin';
 
 const getServer = () => {
   return new Hapi.Server({
@@ -9,8 +10,10 @@ const getServer = () => {
   });
 };
 
-export const getServerWithPlugins = () => {
+export const getServerWithPlugins = async () => {
   const server = getServer();
+
+  await server.register({ plugin: DatabasePlugin });
 
   server.route({
     method: 'GET',
