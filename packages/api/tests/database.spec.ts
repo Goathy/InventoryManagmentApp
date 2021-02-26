@@ -13,11 +13,13 @@ describe('Server Module', () => {
     await server.stop();
   });
 
-  describe('[GET] /', () => {
-    it('Should Be Happy 😊', async () => {
-      const injection = await server.inject({ method: 'GET', url: '/' });
+  describe('Database Plugin', () => {
+    it('Should connect with database', async () => {
+      const result = await server.app.db.$queryRaw<
+        readonly [{ readonly 'Database ready': boolean }]
+      >(`SELECT 1=1 AS "Database ready"`);
 
-      expect(injection.result).toBe('Be Happy 😊');
+      expect(result[0]['Database ready']).toBeTrue();
     });
   });
 });
