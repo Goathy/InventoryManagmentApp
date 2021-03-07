@@ -32,7 +32,7 @@ describe('Auth Plugin', () => {
       expect(injection.statusCode).toBe(201);
     });
 
-    it('Should return 409 in account alredy exist', async () => {
+    it('Should return 409 in account already exist', async () => {
       const firstName = Faker.name.findName();
       const lastName = Faker.name.lastName();
       const provider = 'ima.com.pl';
@@ -162,7 +162,7 @@ describe('Auth Plugin', () => {
   });
 
   describe('Protected routes', () => {
-    it('Logged user should have acces to protected route', async () => {
+    it('Logged user should have access to protected route', async () => {
       server.route({
         method: 'GET',
         path: '/protected',
