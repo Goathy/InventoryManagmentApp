@@ -2,7 +2,7 @@ import Boom from '@hapi/boom';
 import type Hapi from '@hapi/hapi';
 import { PrismaClient } from '@prisma/client';
 
-import { isDevelop, isTesting } from '../../config';
+import { isDevelopment, isTesting } from '../../config';
 
 declare module '@hapi/hapi' {
   interface ServerApplicationState {
@@ -17,7 +17,9 @@ export const DatabasePlugin: Hapi.Plugin<never> = {
     // @ts-expect-error
     server.app.db = new PrismaClient({
       ...(isTesting() ? { log: ['error'], errorFormat: 'minimal' } : null),
-      ...(isDevelop() ? { log: ['info', 'error', 'warn', 'query'], errorFormat: 'pretty' } : null),
+      ...(isDevelopment()
+        ? { log: ['info', 'error', 'warn', 'query'], errorFormat: 'pretty' }
+        : null),
       rejectOnNotFound: { findFirst: () => Boom.notFound(), findUnique: () => Boom.notFound() },
     });
 
