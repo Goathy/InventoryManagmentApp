@@ -20,3 +20,10 @@ export async function createAndAuthRole(
 
   return [email, password];
 }
+
+// https://github.com/typeofweb/sklep/blob/ce707b77148d7aa4b800df050cfe62415cdcc7ea/apps/api/jest-utils.ts#L60
+
+export const repeatRequest = <T>(n: number, fn: () => Promise<T>): Promise<readonly T[]> => {
+  const repetitions = Array.from({ length: n }, () => fn());
+  return Promise.all(repetitions);
+};
