@@ -24,7 +24,7 @@ declare module '@hapi/hapi' {
 }
 
 export const AuthPlugin: Hapi.Plugin<AuthPluginOptions> = {
-  name: 'HapiAuthPlugin',
+  name: 'imaAuth',
   multiple: false,
   register: async (server, options) => {
     await server.register(HapiCookie);

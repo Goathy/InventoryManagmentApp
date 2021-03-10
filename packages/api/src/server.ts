@@ -4,6 +4,7 @@ import Joi from 'joi';
 import { getConfig, isProduction } from './config';
 import { AuthPlugin } from './plugins/auth/auth.plugin';
 import { DatabasePlugin } from './plugins/database/database.plugin';
+import { UsersPlugin } from './plugins/users/users.plugin';
 
 const getServer = () => {
   return new Hapi.Server({
@@ -39,6 +40,8 @@ export const getServerWithPlugins = async () => {
     },
     routes: { prefix: '/auth' },
   });
+
+  await server.register({ plugin: UsersPlugin, routes: { prefix: '/v1' } });
 
   return server;
 };

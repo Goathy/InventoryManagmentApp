@@ -11,7 +11,7 @@ declare module '@hapi/hapi' {
 }
 
 export const DatabasePlugin: Hapi.Plugin<never> = {
-  name: 'PrismaHapiDatabasePlugin',
+  name: 'imaDatabase',
   multiple: false,
   register: (server) => {
     // @ts-expect-error
